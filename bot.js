@@ -1,12 +1,16 @@
-const Discord = require("discord.js");
-const m7md = new Discord.Client();
-m7md.on('message', message => {
-    if (message.content === prefix + "cdate") {
-        var currentTime = new Date(),
-            السنة = currentTime.getFullYear(),
-            الشهر = currentTime.getMonth() + 1,
-            اليوم = currentTime.getDate();
-        message.channel.sendMessage( "Date : " + اليوم + "-" + الشهر + "-" +السنة)
-    }
+const Discord = require('discord.js');
+const client = new Discord.Client();
+
+client.on('ready', () => {
+    console.log('I am ready!');
 });
-m7md.login('التوكن')
+
+client.on('message', message => {
+    if (message.content === 'ping') {
+    	message.reply('pong');
+  	}
+});
+
+// THIS  MUST  BE  THIS  WAY
+client.login(process.env.BOT_TOKEN);
+
